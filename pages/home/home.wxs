@@ -1,0 +1,26 @@
+var displayYoN=function(rate,n){
+  console.log(rate)
+  console.log(n)
+  if(rate==0){
+    return "../../img/star1.png"
+  }else if(2*(n+1)-1 <= rate){
+    return "../../img/star3.png"
+  }else if(2*(n+1)-2 < rate){
+    return "../../img/star4.png"
+  }else{
+    return "../../img/star1.png"
+  }
+}
+
+var get_chinese_title=function(title){
+  //console.log('制作中文标题')
+  var index=title.indexOf(' ')
+  if(index==-1) return title
+  var t=title.substring(0,index)
+  return t
+}
+
+module.exports={
+  display:displayYoN,
+  gct:get_chinese_title
+}

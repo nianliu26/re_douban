@@ -1,0 +1,11 @@
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#f8eef3",
+  "navigationBarTitleText": "详情",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#f8eef3",
+
+  "usingComponents": {
+    "loading":"/Component/loading/loading"
+  }
+}

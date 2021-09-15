@@ -1,0 +1,115 @@
+<!--pages/my/my.wxml-->
+<view style="background-color: #47ca5d;">
+  <view style="display: flex; height: 400rpx;align-items: center; justify-content: center;">
+    <button style="width: 300rpx;border-radius: 50rpx;" open-type="getUserInfo" bindtap="getinfo" wx:if="{{nickname==''}}">登录</button>
+    <view wx:if="{{nickname!=''}}">
+      <view style="display: flex;flex-direction: row; justify-content: center;">
+        <image style=" border-radius: 100rpx;height: 100rpx;width: 100rpx;" src="{{avatarUrl}}"/>
+      </view>
+      <view style="width: 200rpx;display: flex;align-items: center;justify-content: center;">
+        <text style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{nickname}}</text>
+      </view>
+    </view>
+    
+  </view>
+  <view style="margin-left: 85%;" wx:if="{{nickname!=''}}" bindtap="out">
+    <text style="color: white;">退出</text>
+  </view>
+
+</view>
+
+
+<view style="margin-top:20rpx;margin-bottom: 10rpx;">
+  <text style="margin-left: 20rpx;">我的书影音</text>
+  <view style="float: right;margin-right: 30rpx;font-size: 25rpx;">
+    <text style="color: rgb(180, 173, 173);margin-right: 5rpx;">{{msg}}</text>
+    <text class="icon-right-arrow"/>
+  </view>
+</view>
+
+
+
+<view style="display: flex;height: 130rpx; margin-left: 30rpx;margin-top: 10rpx;position: relative;">
+  <view style="display: flex;flex-direction: column; justify-content: center;">
+    <image src="/img/watching.png" style="width: 50rpx;height: 50rpx;"/>
+  </view>
+  <view style="margin-left: 30rpx;margin-top: 10rpx;display: flex;">
+    <view>
+      <view>
+        <text style="font-size: 25rpx;">观影分析</text>
+      </view>
+      <view style="display: flex;">
+        <view>
+          <text style="font-size: 50rpx;">{{count_collection}}</text>
+          <text style="font-size: 30rpx;margin-left: 10rpx;">看过</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view style="float: right;display: flex;position: absolute;right: 0;top: 25%;margin-right: 30rpx;">
+    <view style="background-color: rgb(235, 230, 230);width: 100rpx;height: 50rpx;display: flex;align-items: center;justify-content:center;border-radius: 8rpx;margin-right: 5rpx;">
+      <text style="font-size: 20rpx;">立即开启</text>
+    </view>
+      <text class="icon-right-arrow"></text>
+  </view>
+</view>
+
+
+
+<view style="display: flex;height: 130rpx; margin-left: 30rpx;margin-top: 10rpx;position: relative;">
+  <view style="display: flex;flex-direction: column; justify-content: center;">
+    <image src="/img/reading.png" style="width: 50rpx;height: 50rpx;"/>
+  </view>
+  <view style="margin-left: 30rpx;margin-top: 10rpx;display: flex;">
+    <view>
+      <view>
+        <text style="font-size: 25rpx;">读书分析</text>
+      </view>
+      <view style="display: flex;">
+        <view>
+          <text style="font-size: 50rpx;">0</text>
+          <text style="font-size: 30rpx;margin-left: 10rpx;">读过</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view style="float: right;display: flex;position: absolute;right: 0;top: 25%;margin-right: 30rpx;">
+    <view style="background-color: rgb(235, 230, 230);width: 100rpx;height: 50rpx;display: flex;align-items: center;justify-content:center;border-radius: 8rpx;margin-right: 5rpx;">
+      <text style="font-size: 20rpx;">立即开启</text>
+    </view>
+      <text class="icon-right-arrow"></text>
+  </view>
+</view>
+
+
+
+<view style="display: flex;height: 130rpx; margin-left: 30rpx;margin-top: 10rpx;position: relative;">
+  <view style="display: flex;flex-direction: column; justify-content: center;">
+    <image src="/img/music.png" style="width: 50rpx;height: 50rpx;"/>
+  </view>
+  <view style="margin-left: 30rpx;margin-top: 10rpx;display: flex;">
+    <view>
+      <view>
+        <text style="font-size: 25rpx;">音乐分析</text>
+      </view>
+      <view style="display: flex;">
+        <view>
+          <text style="font-size: 50rpx;">0</text>
+          <text style="font-size: 30rpx;margin-left: 10rpx;">听过</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view style="float: right;display: flex;position: absolute;right: 0;top: 25%;margin-right: 30rpx;">
+    <view style="background-color: rgb(235, 230, 230);width: 100rpx;height: 50rpx;display: flex;align-items: center;justify-content:center;border-radius: 8rpx;margin-right: 5rpx;">
+      <text style="font-size: 20rpx;">立即开启</text>
+    </view>
+      <text class="icon-right-arrow"></text>
+  </view>
+</view>
+
+
+<view style="margin-right: 50rpx;margin-left: 50rpx;margin-top: 70rpx;box-shadow: 0px 0px 10px black;height: 200rpx;padding: 30rpx;">
+  <text>关于我们</text>
+
+</view>

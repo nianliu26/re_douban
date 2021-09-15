@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/DBtest/DBtest",
+    "pages/my/my",
+    "pages/toplist/toplist",
+    "Component/loading/loading"
+  ],
+  "subpackages": [
+    {
+      "root": "pageA",
+      "pages": [
+        "pages/details/details",
+        "pages/more/more",
+        "pages/research/research"
+
+      ]
+    }
+  ],
+
+
+
+
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "/img/baomihua1.png",
+        "selectedIconPath": "/img/baomihua.png"
+      },
+      {
+        "pagePath": "pages/toplist/toplist",
+        "text": "榜单",
+        "iconPath": "/img/bangdan1.png",
+        "selectedIconPath": "/img/bangdan.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "/img/my1.png",
+        "selectedIconPath": "/img/my.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

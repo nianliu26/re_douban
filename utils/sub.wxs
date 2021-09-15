@@ -1,0 +1,8 @@
+// 主要写JS代码
+var sub= function(str){
+  var array=str.split(' ');
+  return array[0];
+}
+module.exports={
+  sub:sub
+}

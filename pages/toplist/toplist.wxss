@@ -1,0 +1,324 @@
+/* pages/toplist/toplist.wxss */
+
+
+/* pages/top/top.wxss */
+
+.top-page{
+  /* 向标记内设置边距 padding 向标记外 margin */
+  padding: 20px;
+}
+.top-year{
+  width: 100%;
+  height: 180px;
+  /* 通过渐变设置背景颜色 */
+  /*  */
+  background-image: linear-gradient(135deg,#A05030 145px,#397286);
+  /* 圆角 */
+  border-radius: 5px;
+
+  /* 设置定位 */
+  position: relative;
+}
+.top-year-title{
+  /* absolute 绝对定位，只会相对有定位级的父元素 */
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  /* 设置字体颜色 */
+  color: white;
+}
+.top-year-title text:nth-of-type(1){
+  /* 设置第一行的字的大小 */
+  font-size: 20px;
+}
+.top-year-title text:nth-of-type(2){
+  /* 设置第二行的字的大小 */
+  font-size: 10px;
+}
+.top-year-imgs{
+  /* 通过定位设置三张图片的位置 */
+  position: absolute;
+  left: 20px;
+  bottom: 10px;
+}
+.year-img{
+  width: 60px;
+  height: 90px;
+  /* 设置圆角 */
+  border-radius: 3px;
+  /* 设置一个相对定位 */
+  position: relative;
+  /* 设置层级关系 */
+  z-index: 3;
+}
+.year-img:nth-of-type(2){
+  margin-left: -20px;
+   /* 设置层级关系 */
+  z-index: 2;
+}
+.year-img:nth-of-type(3){
+  margin-left: -20px;
+   /* 设置层级关系 */
+  z-index: 1;
+}
+
+.top-week{
+  width: 100%;
+  height: 180px;
+  /* 通过渐变设置背景颜色 */
+  /*  */
+  background-image: linear-gradient(135deg,rgb(106, 155, 41) 145px,#397286);
+  /* 圆角 */
+  border-radius: 5px;
+
+  /* 设置定位 */
+  position: relative;
+  margin-top: 15px;
+}
+.top-week-title{
+  /* absolute 绝对定位，只会相对有定位级的父元素 */
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  /* 设置字体颜色 */
+  color: white;
+  font-size:20px ;
+}
+.top-week-imgs{
+  /* 通过定位设置三张图片的位置 */
+  position: absolute;
+  left: 20px;
+  bottom: 10px;
+}
+.week-img{
+  width: 60px;
+  height: 90px;
+  /* 设置圆角 */
+  border-radius: 3px;
+  /* 设置一个相对定位 */
+  position: relative;
+  /* 设置层级关系 */
+  z-index: 3;
+}
+.week-img:nth-of-type(2){
+  margin-left: -20px;
+   /* 设置层级关系 */
+  z-index: 2;
+}
+.week-img:nth-of-type(3){
+  margin-left: -20px;
+   /* 设置层级关系 */
+  z-index: 1;
+}
+
+ 
+/* ***************top250榜单************** */
+.top-select{
+  /* 设置弹性容器 水平放置 */
+  display: flex;
+
+  width: 100%;
+  height: 90px;
+  /* border: 2px solid #8b8b8b; */
+  /* 设置圆角 */
+  border-radius: 5px;
+
+  /* 设置外边距 */
+  margin: 40px 0;
+
+  /* 设置阴影 */
+  /* box-shadow(x,y,width,color) 
+    x y 是阴影的偏移位置
+    width 是阴影的宽度
+    color 是阴影的颜色
+  */
+  box-shadow: 0px 0px 10px black;
+}
+.top-select-title{
+  width: 90px;
+
+  background-color: rgb(48,49,56);
+  /* 设置圆角 */
+  border-radius: 5px;
+  /* 将字体内容居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 设置弹性容器的方向 */
+  flex-direction: column;
+
+  color: white;
+  /* 放大 */
+  /* 确定方法的起始位置 */
+  transform-origin: left center;
+  transform: scale(1.2);
+}
+/* 设置第一行文字 */
+.top-select-title text:nth-of-type(1){
+  font-size: 20px;
+  font-weight: bold;
+}
+/* 设置电影名称显示 */
+.top-select-movies{
+  margin-left: 20px;
+  /* 设置弹性容器 */
+  display: flex;
+  /* 设置方向 */
+  flex-direction: column;
+  /* 设置相等的间隔 */
+  justify-content: space-around;
+  /* 字体颜色 */
+  color: #8b8b8b;
+  /* 字体大小 */
+  font-size: 10px;
+}
+.top-select-movies text{
+  color: rgb(237,169,63);
+  margin-left: 5px;
+}
+
+
+
+/*********** 豆瓣周榜 华语 **********/
+.top-select1{
+  /* 设置弹性容器 水平放置 */
+  display: flex;
+
+  width: 100%;
+  height: 90px;
+  /* border: 2px solid #8b8b8b; */
+  /* 设置圆角 */
+  border-radius: 5px;
+
+  /* 设置外边距 */
+  margin: 40px 0;
+
+  /* 设置阴影 */
+  /* box-shadow(x,y,width,color) 
+    x y 是阴影的偏移位置
+    width 是阴影的宽度
+    color 是阴影的颜色
+  */
+  box-shadow: 0px 0px 10px black;
+}
+.top-select1-title{
+  width: 90px;
+
+  background-color: rgb(83,94,77);
+  /* 设置圆角 */
+  border-radius: 5px;
+  /* 将字体内容居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 设置弹性容器的方向 */
+  flex-direction: column;
+
+  color: white;
+  /* 放大 */
+  /* 确定方法的起始位置 */
+  transform-origin: left center;
+  transform: scale(1.2);
+}
+/* 设置第一行文字 */
+.top-select1-title text:nth-of-type(1){
+  font-size: 10px;
+}
+.top-select1-title text:nth-of-type(2){
+  font-size: 20px;
+  font-weight: bold;
+}
+/* 设置电影名称显示 */
+.top-select1-movies{
+  margin-left: 20px;
+  /* 设置弹性容器 */
+  display: flex;
+  /* 设置方向 */
+  flex-direction: column;
+  /* 设置相等的间隔 */
+  justify-content: space-around;
+  /* 字体颜色 */
+  color: #8b8b8b;
+  /* 字体大小 */
+  font-size: 10px;
+}
+.top-select1-movies text{
+  color: rgb(237,169,63);
+  margin-left: 5px;
+}
+
+
+
+/*********** 豆瓣周榜 全球 **********/
+.top-select2{
+  /* 设置弹性容器 水平放置 */
+  display: flex;
+
+  width: 100%;
+  height: 90px;
+  /* border: 2px solid #8b8b8b; */
+  /* 设置圆角 */
+  border-radius: 5px;
+
+  /* 设置外边距 */
+  margin: 40px 0;
+
+  /* 设置阴影 */
+  /* box-shadow(x,y,width,color) 
+    x y 是阴影的偏移位置
+    width 是阴影的宽度
+    color 是阴影的颜色
+  */
+  box-shadow: 0px 0px 10px black;
+}
+.top-select2-title{
+  width: 90px;
+
+  background-color: rgb(67,74,93);
+  /* 设置圆角 */
+  border-radius: 5px;
+  /* 将字体内容居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 设置弹性容器的方向 */
+  flex-direction: column;
+
+  color: white;
+  /* 放大 */
+  /* 确定方法的起始位置 */
+  transform-origin: left center;
+  transform: scale(1.2);
+}
+/* 设置第一行文字 */
+.top-select2-title text:nth-of-type(1){
+  font-size: 10px;
+}
+.top-selec2-title text:nth-of-type(2){
+  font-size: 20px;
+  font-weight: bold;
+}
+/* 设置电影名称显示 */
+.top-select2-movies{
+  margin-left: 20px;
+  /* 设置弹性容器 */
+  display: flex;
+  /* 设置方向 */
+  flex-direction: column;
+  /* 设置相等的间隔 */
+  justify-content: space-around;
+  /* 字体颜色 */
+  color: #8b8b8b;
+  /* 字体大小 */
+  font-size: 10px;
+}
+.top-select2-movies text{
+  color: rgb(237,169,63);
+  margin-left: 5px;
+}
+
+ 
+
+
+
+

@@ -1,0 +1,7 @@
+{
+  "enablePullDownRefresh":true,
+  "navigationBarTitleText": "书影音档案",
+  "usingComponents": {
+    "loading":"../../Component/loading/loading"
+  }
+}

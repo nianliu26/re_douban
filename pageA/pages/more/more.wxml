@@ -1,0 +1,33 @@
+<!--pages/more/more.wxml-->
+<view style="display: flex;flex-wrap: wrap;padding-top: 20rpx;" wx:if="{{!loading}}">
+
+  <!--这里将会有个循环start-->
+    <view style="width: 200rpx;text-align: center;margin-left: 0rpx;margin-right: 20rpx;margin-left: 20rpx;margin-bottom: 30rpx;" wx:for="{{movies}}" wx:for-item="item1" >
+      <view style="width: 200rpx;text-align: center;margin-left: 0rpx;margin-right: 20rpx;margin-left: 20rpx;margin-bottom: 30rpx;" bindtap="toDetails" data-id="{{item1._id}}">
+        <image mode="aspectFill" src="{{item1.image}}" style="width: 200rpx;height: 350rpx;border-radius: 20rpx;"/>
+        <view style="display: flex;width: 180rpx;  font-size: 25rpx;">
+          <text style=" white-space:nowrap; overflow: hidden;text-overflow: ellipsis;">{{item1.title}}</text>
+        </view>
+        <view style="display: flex;width: 200rpx;align-content: center;justify-content: center;">
+          <view wx:for="{{[1,2,3,4,5]}}" wx:for-index="n" wx:key='key' style="display: flex;">
+            <!--    <image src='{{stars.display(itemNmae.rate,n)}}'/> -->
+            <image wx:if="{{item1.rate==0}}" src="/img/star1.png" class="star"/> 
+            <image wx:elif="{{2*(n+1)-1 <= item1.rate}}" src="/img/star3.png" class="star"/>
+            <image wx:elif="{{2*(n+1)-2 < item1.rate}}" src="/img/star4.png" class="star"/>
+            <image wx:else src="/img/star1.png" class="star"/>
+          </view>
+          <view style="display: flex;">
+            <text style="font-size: 20rpx;margin-left: 8rpx;">{{item1.rate}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  <!--这里将会结束循环end-->
+</view>
+
+
+<view wx:if="{{loading}}" style="flex-direction: column;display: flex;justify-content: center;height: 1200rpx;">
+  <view wx:if="{{loading}}" style="flex-direction: row;display: flex;justify-content: center;">
+    <loading></loading>
+  </view>
+</view>

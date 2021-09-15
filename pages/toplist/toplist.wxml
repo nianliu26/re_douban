@@ -1,0 +1,75 @@
+<!--pages/toplist/toplist.wxml-->
+<wxs src="../../utils/sub.wxs" module="tool"></wxs>
+<view class="top-page" wx:if="{{!loading}}">
+  <view class="top-year">
+    <view class="top-year-title">
+      <text>2020豆瓣年度榜单
+      </text>
+      <text>movies of the year</text>
+    </view>
+    <view class="top-year-imgs">
+      <image wx:for="{{bang20}}" wx:key="index" src="{{item.image}}" class="year-img"/>
+    </view>
+  </view>
+
+  <view class="top-week">
+    <view class="top-week-title">
+      <text>2019豆瓣年度榜单</text>
+    </view>
+    <view class="top-week-imgs">
+      <image wx:for="{{bang19}}" wx:key="index" src="{{item.image}}" class="week-img"/>
+    </view>
+  </view>
+
+  <view class="top-select">
+    <view class="top-select-title">
+      <text>冠军榜单
+      </text>
+      <text>豆瓣电影</text>
+    </view>
+    <view class="top-select-movies">
+      <view wx:for="{{winner}}" wx:key="index">{{index+1}}.{{tool.sub(item.title)}}<text>{{item.rate}}分</text></view>
+    </view>
+  </view>
+
+  <view class="top-select1">
+    <view class="top-select1-title">
+      <text>豆瓣周榜
+      </text>
+      <text>华语口碑剧集</text>
+    </view>
+    <view class="top-select1-movies">
+      <view wx:for="{{top_china}}" wx:key="index">{{index+1}}.{{tool.sub(item.title)}}<text>{{item.rate}}分</text></view>
+    </view>
+  </view>
+
+  <view class="top-select2">
+    <view class="top-select2-title">
+      <text>豆瓣周榜
+      </text>
+      <text>全美口碑剧集榜</text>
+    </view>
+    <view class="top-select2-movies">
+      <view wx:for="{{top_usa}}" wx:key="index">{{index+1}}.{{tool.sub(item.title)}}<text>{{item.rate}}分</text></view>
+    </view>
+  </view>
+
+    <view class="top-select2">
+    <view class="top-select2-title">
+      <text>豆瓣周榜
+      </text>
+      <text>英国口碑剧集榜</text>
+    </view>
+    <view class="top-select2-movies">
+      <view wx:for="{{top_b}}" wx:key="index">{{index+1}}.{{tool.sub(item.title)}}<text>{{item.rate}}分</text></view>
+    </view>
+  </view>
+
+</view>
+
+
+<view wx:if="{{loading}}" style="flex-direction: column;display: flex;justify-content: center;height: 1200rpx;">
+  <view wx:if="{{loading}}" style="flex-direction: row;display: flex;justify-content: center;">
+    <loading></loading>
+  </view>
+</view>

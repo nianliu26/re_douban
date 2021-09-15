@@ -1,0 +1,64 @@
+/* pages/home/home.wxss */
+.reaserch-back{
+  background-color: #42bd56;
+  padding: 15rpx;
+}
+.reaserch-main{
+  display: flex;
+  background-color: white;
+  border-radius: 10rpx;
+  text-align: center;
+  font-size: 25rpx;
+  height: 50rpx;
+  flex-direction: column;
+  justify-content: center;
+}
+.reaserch-main text{
+  color: #b4b2b1;
+}
+.most-hot-header{
+  display: flex;
+  justify-content: space-between;
+  padding: 10rpx 20rpx;
+}
+.hot-more{
+  color: #42bd56;
+}
+.gruid-movie-list{
+  white-space: nowrap;
+  margin-left: 16rpx;
+  margin-right: 16rpx;
+  margin-top: 10rpx;
+}
+.hot-content{
+  display: inline-block;
+  width: 170rpx;
+  padding: 6rpx;
+}
+.image{
+  width:150rpx;
+  height: 200rpx;
+  border-radius: 10rpx;
+}
+.movie-name{
+  font-size: 20rpx;
+  width: 150rpx;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+.moview-score{
+  display: flex;
+  font-size: 20rpx;
+}
+.moview-score image{
+  width: 25rpx;
+  height: 25rpx;
+}
+.moview-score text{
+  width: 25rpx;
+  height: 25rpx;
+}

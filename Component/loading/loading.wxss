@@ -1,0 +1,13 @@
+/* Component/loading/loading.wxss */
+@keyframes box-ani {
+  from {transform: rotate(0)}
+  to {transform: rotate(360deg)}
+}
+.songimg{
+  border-radius:50%;
+  position: relative;
+  /* margin-left: -30rpx; */
+  animation: box-ani 4s  infinite linear;
+  width: 50rpx;
+  height: 50rpx;
+}

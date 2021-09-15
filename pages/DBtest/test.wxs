@@ -1,0 +1,26 @@
+var  testA=function(str){
+  console.log('开始执行')
+  console.log(str)
+  var s=str
+  return s
+}
+
+var testB=function(str){
+  console.log('分割字符串')
+  var index=str.indexOf(' ')
+  var title1=str.substring(0,index)
+  var title2=str.substring(index+1)
+  console.log('title1:'+title1)
+  console.log('title2:'+title2)
+
+
+  var m=str.replace(',','/')
+  console.log(m)
+
+}
+
+
+module.exports={
+  testA:testA,
+  testB:testB
+}

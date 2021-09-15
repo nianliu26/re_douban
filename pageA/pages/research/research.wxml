@@ -1,0 +1,46 @@
+<!--pages/research/research.wxml-->
+<wxs src="./research.wxs" module="tool"/>
+
+<view style="background-color: #42bd56;padding: 20rpx;">
+  <view class="single-text" 
+    style="display: flex;background-color: #fff;height: 55rpx;font-size: 30rpx;align-items: center;border-radius: 7rpx;padding-left: 10rpx;padding-right: 10rpx;">
+    <view class="icon-fangdajing" style="font-size: 20rpx;"></view>
+    <input type="text" confirm-type="search" placeholder="搜索" style="width: 700rpx;margin-left: 10rpx;" bindinput="findData" />
+  </view>
+</view>
+
+  <view wx:for="{{list}}" style="margin-top: 30rpx;margin-bottom: 10rpx;margin-left: 20rpx;display: flex;">
+    <view style="margin-top: 30rpx;margin-bottom: 10rpx;margin-left: 20rpx;display: flex;" bindtap="toDetails" data-id="{{item._id}}">
+    <!--这里是动态电影列表，由获取的数据决定-->
+      <view>
+        <image  mode="aspectFill" src='{{item.image}}' style="height: 120rpx;width: 80rpx;border-radius: 10rpx;"/>
+      </view>
+      
+      <view style="margin-left: 30rpx;margin-right: 20rpx;">
+        <view style="width: 600rpx;">
+          <text style="font-size: 30rpx;white-space:nowrap;overflow: hidden;text-overflow: ellipsis;">{{tool.gct(item.title)}}</text>
+          <text style="font-size: 25rpx;">{{item.year}}</text>
+        </view>
+        
+        <view style="display: flex;align-items: center;align-content: center;text-align: center;">
+          <view wx:for="{{[1,2,3,4,5]}}" wx:for-index="n" wx:key='key' wx:for-item="stra">
+          <!--    <image src='{{stars.display(itemNmae.rate,n)}}'/> -->
+            <image mode="aspectFill" wx:if="{{item.rate==0}}" src="/img/star1.png" style="width: 20rpx;height: 20rpx;"/> 
+            <image mode="aspectFill" wx:elif="{{2*(n+1)-1 <= item.rate}}" src="/img/star3.png" style="width: 20rpx;height: 20rpx;"/>
+            <image mode="aspectFill" wx:elif="{{2*(n+1)-2 < item.rate}}" src="/img/star4.png" style="width: 20rpx;height: 20rpx;"/>
+            <image mode="aspectFill" wx:else src="/img/star1.png" style="width: 20rpx;height: 20rpx;"/>
+          </view>
+          <text style="font-size: 18rpx;margin-left: 5rpx;">{{item.rate}}</text>
+        </view>
+
+        <view style="font-size: 18rpx;display: flex;margin-right: 20rpx;">
+          <view style="background-color: rgb(219, 215, 215);width: 50rpx;height: 25rpx;text-align: center;border-radius: 5rpx;">
+            <text>电影</text>
+          </view>
+          <text >{{item.rate}}/{{item.year}}/{{tool.remake_genre(item.contries)}}/{{tool.remake_genre(item.genre)}}/{{item.director}}</text>
+        </view>
+        <view style="background-color: rgb(219, 215, 215);height: 5rpx;margin-top: 20rpx;margin-right: 20rpx;"></view>
+
+      </view>
+    </view>
+  </view>

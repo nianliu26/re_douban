@@ -1,0 +1,49 @@
+<!--pages/home/home.wxml-->
+<wxs src='./home.wxs' module="tool"/>
+<scroll-view wx:if="{{!loading}}">
+  <view class="reaserch-back">
+    <view class="reaserch-main" style="font-size: 25rpx;" bindtap="toReaserch">
+      <text class="reaserch icon-fangdajing">搜索</text>
+    </view>
+  </view>
+
+  <view>
+  <!--这里将会有个循环start-->
+    <view class="most-hot" wx:for="{{movie_list}}" wx:for-item="item" wx:key='key' wx:for-index="id" style="margin-bottom: 30rpx;">
+      <view class="most-hot-header">
+        <view>{{item.list_title}}电影</view>
+        <view class='hot-more' bindtap="toMore" data-type="{{item.list_title}}">
+        查看更多
+        <text class="icon-right-arrow"></text>
+        </view>
+      </view>
+      <scroll-view scroll-x="true" class="gruid-movie-list">
+        <view wx:for="{{item.list_content}}" wx:for-item="itemName" wx:key="key" class="hot-content">
+          <view class="hot-content" bindtap="toDetails" data-id="{{itemName._id}}">
+            <image mode="aspectFill" src="{{itemName.image}}" class="image"></image> 
+            <view class="movie-name">{{tool.gct(itemName.title)}}</view>
+            <view class="moview-score">
+              <view wx:for="{{[1,2,3,4,5]}}" wx:for-index="n" wx:key='key'>
+            <!--    <image src='{{stars.display(itemNmae.rate,n)}}'/> -->
+              
+                <image wx:if="{{itemName.rate==0}}" src="../../img/star1.png"/> 
+                <image wx:elif="{{2*(n+1)-1 <= itemName.rate}}" src="../../img/star3.png"/>
+                <image wx:elif="{{2*(n+1)-2 < itemName.rate}}" src="../../img/star4.png"/>
+                <image wx:else src="../../img/star1.png"/>
+               
+              </view>
+              <text>{{itemName.rate}}</text>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+    <!--这里结束循环end-->
+  </view>
+</scroll-view>
+
+<view wx:if="{{loading}}" style="flex-direction: column;display: flex;justify-content: center;height: 1200rpx;">
+  <view wx:if="{{loading}}" style="flex-direction: row;display: flex;justify-content: center;">
+    <loading></loading>
+  </view>
+</view>

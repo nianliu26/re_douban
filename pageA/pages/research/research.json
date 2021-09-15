@@ -1,0 +1,9 @@
+{
+  "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#42bd56",
+    "navigationBarTitleText": "搜索",
+    "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "loading":"/Component/loading/loading"
+  }
+}

@@ -1,0 +1,23 @@
+/* pages/details/details.wxss */
+page{
+  background-color: #f8eef3;
+}
+.head-row{
+  height: 300rpx;
+  display: flex;
+}
+.text-in-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sroce-star image{
+  height: 30rpx;
+  width: 30rpx;
+}
+
+.star{
+  height: 25rpx;
+  width: 25rpx;
+  margin: auto;
+}
