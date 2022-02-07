@@ -67,8 +67,75 @@ Page({
         remark:'今天是个好日子呀埃里克解放路卡等级分类看见了看见的弗兰克极乐空间联发科解放路科技看到几个老师开房间隔离开关了女老师发个链接akjfdlkdjfldjlkdjfkladjflakdjfldkjflncladglhlclnlla',
         goods:'2000'
       }
-    ]
+    ],
+
+
+
+    //评星数据
+    stars:[
+      {starURL:'/img/star1.png',rate:'1'},
+      {starURL:'/img/star1.png',rate:'2'},
+      {starURL:'/img/star1.png',rate:'3'},
+      {starURL:'/img/star1.png',rate:'4'},
+      {starURL:'/img/star1.png',rate:'5'},
+    ],
+
+    ownrate:'1'
+
+
   },
+
+  radioChange(ev){
+    //console.log(ev)
+    let that=this
+    let rate=ev.detail.value
+    for(var i=0;i<5;i++){
+      var url='stars['+i+'].starURL'
+      that.setData({
+        [url]:'/img/star1.png'
+      })
+    }
+    for(var i=0;i<rate;i++){
+      var url='stars['+i+'].starURL'
+      that.setData({
+        [url]:'/img/star3.png',
+        ownrate:rate
+      })
+    }
+  },
+
+
+  // sendRemark(ev){
+  //   console.log(ev)
+  //   let remark=ev.detail.value.remark_content
+  //   let app = getApp()
+  //   let that=this
+  //   let today=new Date().toLocaleDateString
+
+  //   wx.cloud.init()
+
+  //   wx.cloud.callFunction({
+  //     name:'remark',
+  //     data:{
+  //       type:'add',
+  //       movieid:that.data.movieid,//电影id
+  //       openid:that.data.openid,//评论人id
+  //       nickname:that.data.nickname,//评论者昵称
+  //       avatarUrl:that.data.avatarUrl,//评论者头像
+  //       rate:that.data.rate,//个人评分
+  //       data:today,//评论日期
+  //       remark:remark,//评论内容
+  //     },
+  //     success(){
+  //       wx.showToast({
+  //         title: '评论发布成功',
+  //       })
+  //     }
+  //   })
+
+
+
+  // },
 
   /**
    * 生命周期函数--监听页面加载
@@ -78,7 +145,7 @@ Page({
     let that=this
 
     //评论逻辑：
-    wx.cloud.init()
+    //wx.cloud.init()
 
 
     // //添加一条评论
@@ -100,53 +167,40 @@ Page({
 
 
 
-    //获取评论数量
-    wx.cloud.callFunction({
-      name:'remark',
-      data:{
-        type:'remarkacount',
-        movieid:'111'
-      },
-      success(res){
-        //console.log(res)
-        that.setData({
-          remark_acount:res.result
-        })
-        //console.log(that.data.remark_acount)
-      }
-    })
+    // //获取评论数量
+    // wx.cloud.callFunction({
+    //   name:'remark',
+    //   data:{
+    //     type:'remarkacount',
+    //     movieid:'111'
+    //   },
+    //   success(res){
+    //     //console.log(res)
+    //     that.setData({
+    //       remark_acount:res.result
+    //     })
+    //     //console.log(that.data.remark_acount)
+    //   }
+    // })
 
-    //获取5条评论数据，用于详情页面显示
-    let db=wx.cloud.database()
-    db.collection('remark')
-    .where({
-      movieid:that.data.movieid
-    }).limit(5)
-    .get({
-      success(res){
-        console.log(res)
-        that.setData({
-          remarklist:res.data
-        })
-        console.log(that.data.remarklist)
-      },
-      fail(err){
-        console.log(err)
-      }
-    })
-
-
-
-
-
-
-
-
-
-
-
-
-
+    // //获取5条评论数据，用于详情页面显示
+    // let db=wx.cloud.database()
+    // db.collection('remark')
+    // .where({
+    //   movieid:that.data.movieid
+    // }).limit(5)
+    // .get({
+    //   success(res){
+    //     console.log(res)
+    //     that.setData({
+    //       remarklist:res.data
+    //     })
+    //     console.log(that.data.remarklist)
+    //   },
+    //   fail(err){
+    //     console.log(err)
+    //   }
+    // })
 
 
 

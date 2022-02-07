@@ -97,7 +97,7 @@
     <!--头部-->
     <view style="padding-top:20rpx;padding-bottom: 10rpx;">
       <tex style="font-weight: bold;margin-left: 20rpx;">短评</tex>
-      <text style="margin-left: 70%;font-size: 25rpx;">全部{{remark_acount}}</text>
+      <text style="margin-left: 70%;font-size: 25rpx;" bindtap="toAllRemark">全部{{remark_acount}}</text>
     </view>
     <!--具体内容即循环体-->
     <view style="background-color: white;padding-top: 10rpx;margin-top: 10rpx;margin-bottom: 10rpx;" wx:for="{{remarklist}}" wx:key="key" wx:if="{{remark_acount!=0}}">
@@ -122,7 +122,7 @@
       </view>
       <!--点赞-->
       <view style="display: flex;">
-        <image src="/img/good.png" style="width: 70rpx;height: 70rpx;" ></image>
+        <image src="{{item.goodURL}}" style="width: 70rpx;height: 70rpx;" bindtap="setGood"  data-i="{{index}}"></image>
         <view style="justify-content: center;display: flex; align-items: center;font-size: 20rpx;">
           <text>{{item.goods}}</text>
         </view>
@@ -133,7 +133,7 @@
     <view wx:if="{{remark_acount==0}}" style="height: 100rpx;padding-left: 50rpx;padding-top: 50rpx;">暂无评论</view>
     <!--分割线-->
     <view style="margin-top: 20rpx;margin-bottom: 20rpx;">
-      <view style="background-color: rgb(218, 205, 205);width: 80%;margin: auto;text-align: center;">写评论</view>
+      <view style="background-color: rgb(218, 205, 205);width: 80%;margin: auto;text-align: center;" bindtap="toSendRemark">写评论</view>
     </view>
 
   </view>

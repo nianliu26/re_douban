@@ -10,6 +10,25 @@
 
 </view>
 
+<view style="background-color: red;padding: 30rpx;">
+  <form bindsubmit="sendRemark">
+    <textarea name="remark_content" placeholder="请写下你的评论" auto-height style="margin-bottom: 200rpx;"></textarea>
+    <radio-group bindchange="radioChange" style="margin-bottom: 50rpx;">
+      <label wx:for="{{stars}}" wx:key="{{star.rate}}">
+      <radio value="{{item.rate}}">
+        <image src="{{item.starURL}}" style="height: 100rpx;width: 100rpx;"/>
+      </radio>
+      </label>
+    </radio-group>
+    <button form-type="submit">发送评论</button>
+  </form>
+</view>
+
+
+
+
+
+
 
 <!--详情页面评论布局-->
 <view style="width: 95%;margin: auto;height: 500rpx;border-radius: 15rpx;">

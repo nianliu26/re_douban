@@ -15,6 +15,16 @@ Page({
     loading:true,
   },
 
+
+
+  toBangdan(ev){
+    //console.log(ev)
+    let name=ev.currentTarget.dataset.name
+    wx.navigateTo({
+      url: '/pageA/pages/bangdan/bangdan?name='+name,
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -34,7 +44,7 @@ Page({
       .limit(3)
       .get({
         success(res) {
-          console.log(res.data);
+          //console.log(res.data);
           that.setData({
             bang20: res.data
           })
@@ -53,7 +63,7 @@ Page({
       .limit(3)
       .get({
         success(res) {
-          console.log(res.data);
+          //console.log(res.data);
           that.setData({
             bang19: res.data
           })
@@ -69,7 +79,7 @@ Page({
       .limit(3)
       .get({
         success(res) {
-          console.log(res.data);
+          //console.log(res.data);
           that.setData({
             winner: res.data
           })
@@ -91,7 +101,7 @@ Page({
       .limit(3)
       .get({
         success(res) {
-          console.log(res.data);
+          //console.log(res.data);
           that.setData({
             top_china: res.data
           })
@@ -109,7 +119,7 @@ Page({
       .limit(3)
       .get({
         success(res) {
-          console.log(res.data);
+          //console.log(res.data);
           that.setData({
             top_usa: res.data
           })
@@ -128,7 +138,7 @@ Page({
       .limit(3)
       .get({
         success(res) {
-          console.log(res.data);
+          //console.log(res.data);
           that.setData({
             top_b: res.data,
             loading:false

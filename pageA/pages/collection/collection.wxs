@@ -1,0 +1,30 @@
+var remake_genre=function(genre){
+  //console.log('制作类型')
+  //console.log(typeof(genre))
+  var new_genre=genre
+  while(new_genre.indexOf('/')!=-1){
+    new_genre=new_genre.replace('/',' ')
+  }
+  return new_genre
+}
+
+var get_chinese_title=function(title){
+  //console.log('制作中文标题')
+  var index=title.indexOf(' ')
+  if(index==-1) return title
+  var t=title.substring(0,index)
+  return t
+}
+
+var get_other_title=function(title){
+  //console.log('制作英文文标题')
+  var index=title.indexOf(' ')
+  var t=title.substring(index+1)
+  return t
+}
+
+module.exports={
+  remake_genre:remake_genre,
+  gct:get_chinese_title,
+  got:get_other_title
+}

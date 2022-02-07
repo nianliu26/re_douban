@@ -25,7 +25,8 @@ exports.main = async (event, context) => {
         rate:event.rate,//个人评分
         data:event.data,//评论日期
         remark:event.remark,//评论内容
-        goods:'0'//获赞次数
+        goods:'0',//获赞次数
+        goodURL:'/img/good.png'
       }
     })
   }
@@ -54,7 +55,14 @@ exports.main = async (event, context) => {
       _id:event.remarkid
     }).get()
 
-    let good=data[0].goods+1
+    let good=parseInt(data.data[0].goods)
+    if(event.down=='cancle'){
+      good--
+    }
+    if(event.down=='good'){
+      good++
+    }
+    good=good+''
     result=await col.where({
       _id:event.remarkid
     }).update({
@@ -62,6 +70,8 @@ exports.main = async (event, context) => {
         goods:good
       }
     })
+
+    //result=parseInt(data.data[0].goods)-1
   }
 
 

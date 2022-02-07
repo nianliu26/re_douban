@@ -6,6 +6,7 @@ Page({
    */
   data: {
 
+    //电影分类数据
     movie_list:[
       {
         list_title:'动作',
@@ -21,9 +22,14 @@ Page({
       }
     ],
 
-    loading:true,
+    loading:true,//是否处于加载中状态
 
   },
+
+  /**
+   * 跳转到电影详情页面
+   * @param {*} ev 
+   */
   toDetails(ev){
     let id=ev.currentTarget.dataset.id;
     //console.log(id);
@@ -31,6 +37,11 @@ Page({
       url: "/pageA/pages/details/details?id="+id
     })
   },
+
+  /**
+   * 跳转到查看更多页面
+   * @param {*} ev 
+   */
   toMore(ev){
     let type=ev.target.dataset.type;
 
@@ -38,6 +49,11 @@ Page({
       url: "/pageA/pages/more/more?type="+type,
     })
   },
+
+
+  /**
+   * 跳转到搜索页面
+   */
   toReaserch(){
     wx.navigateTo({
       url: "/pageA/pages/research/research",
@@ -56,6 +72,7 @@ Page({
     let cmd = db.command;
     let col = db.collection('doubanmovie');
 
+    //获取三个分类的电影列表,每个分类8条数据并保存到movielist中
     for(let x=0;x<3;x++){
       col.where({
         genre:db.RegExp({
@@ -70,7 +87,7 @@ Page({
           let str="movie_list["+x+"].list_content"
           that.setData({
             [str]:res.data,
-            loading:false
+            loading:false//获取成功之后关闭加载动画
           })
         },
         fail(err){

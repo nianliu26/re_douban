@@ -1,0 +1,12 @@
+/* pages/bangdan/bangdan.wxss */
+.text-in-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.star{
+  height: 25rpx;
+  width: 25rpx;
+  margin: auto;
+}

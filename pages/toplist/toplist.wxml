@@ -1,7 +1,7 @@
 <!--pages/toplist/toplist.wxml-->
 <wxs src="../../utils/sub.wxs" module="tool"></wxs>
 <view class="top-page" wx:if="{{!loading}}">
-  <view class="top-year">
+  <view class="top-year" bindtap="toBangdan" data-name="2020">
     <view class="top-year-title">
       <text>2020豆瓣年度榜单
       </text>
@@ -12,7 +12,7 @@
     </view>
   </view>
 
-  <view class="top-week">
+  <view class="top-week" bindtap="toBangdan" data-name="2019">
     <view class="top-week-title">
       <text>2019豆瓣年度榜单</text>
     </view>
@@ -21,7 +21,7 @@
     </view>
   </view>
 
-  <view class="top-select">
+  <view class="top-select" bindtap="toBangdan" data-name="冠军">
     <view class="top-select-title">
       <text>冠军榜单
       </text>
@@ -32,7 +32,7 @@
     </view>
   </view>
 
-  <view class="top-select1">
+  <view class="top-select1" bindtap="toBangdan" data-name="华语">
     <view class="top-select1-title">
       <text>豆瓣周榜
       </text>
@@ -43,7 +43,7 @@
     </view>
   </view>
 
-  <view class="top-select2">
+  <view class="top-select2" bindtap="toBangdan" data-name="全美">
     <view class="top-select2-title">
       <text>豆瓣周榜
       </text>
@@ -54,7 +54,7 @@
     </view>
   </view>
 
-    <view class="top-select2">
+    <view class="top-select2" bindtap="toBangdan" data-name="英国">
     <view class="top-select2-title">
       <text>豆瓣周榜
       </text>

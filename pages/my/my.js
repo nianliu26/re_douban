@@ -14,6 +14,9 @@ Page({
   },
 
 
+  /**
+   * 退出登录按钮功能,点击后退出登录状态
+   */
   out(){
     let app=getApp()
     let that=this
@@ -29,6 +32,34 @@ Page({
   },
 
 
+  /**
+   * 跳转到小组信息页面
+   */
+  toOur(){
+    wx.navigateTo({
+      url: '/pageA/pages/our/our',
+    })
+  },
+
+
+  toCollection(){
+    let app=getApp()
+    if(app.globalData.userOpenID!=''){
+      wx.navigateTo({
+        url: '/pageA/pages/collection/collection',
+      })
+    }else{
+      wx.showToast({
+        title: '请先登录',
+        image:'/img/failure.png'
+      })
+    }
+  },
+
+
+  /**
+   * 申请用户授权并获取用户信息
+   */
   getinfo(ev){
     let app=getApp()
     let that=this
@@ -44,29 +75,28 @@ Page({
           avatarUrl:res.userInfo.avatarUrl,
           msg:"全部"
         })
-      },
-      fail: res => {
-        console.log("获取用户信息失败", res)
-      }
-    })
-
-    wx.cloud.init()
-    wx.cloud.callFunction({
-      name:'login',
-      success(res){
-        app.globalData.userOpenID=res.result.openid
+        wx.cloud.init()
         wx.cloud.callFunction({
-          name:"movieww",
-          data:{
-            type:'select',
-            openid:app.globalData.userOpenID,
-            option:"watched"
-          },
+          name:'login',
           success(res){
-            //console.log(res)
-            let l=res.result.data.length
-            that.setData({
-              count_collection:l.toString(),
+            app.globalData.userOpenID=res.result.openid
+            wx.cloud.callFunction({
+              name:"movieww",
+              data:{
+                type:'select',
+                openid:app.globalData.userOpenID,
+                option:"watched"
+              },
+              success(res){
+                //console.log(res)
+                let l=res.result.data.length
+                that.setData({
+                  count_collection:l.toString(),
+                })
+              },
+              fail(err){
+                console.log(err)
+              }
             })
           },
           fail(err){
@@ -74,10 +104,12 @@ Page({
           }
         })
       },
-      fail(err){
-        console.log(err)
+      fail: res => {
+        console.log("获取用户信息失败", res)
       }
     })
+
+    
 
   },
 
@@ -120,6 +152,7 @@ Page({
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
+   * 下拉刷新，刷新用户收藏电影的数据
    */
   onPullDownRefresh: function () {
     let app=getApp()

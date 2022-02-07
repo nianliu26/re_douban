@@ -1,0 +1,28 @@
+<!--pages/collection/collection.wxml-->
+<wxs src="./collection.wxs" module="tool"/>
+<veiw wx:if="{{!loading}}">
+  <view style="display: flex;flex-wrap: wrap;padding-top: 20rpx;" >
+
+  <!--这里将会有个循环start-->
+    <view style="width: 200rpx;text-align: center;margin-left: 0rpx;margin-right: 20rpx;margin-left: 20rpx;margin-bottom: 30rpx;" wx:for="{{list}}" wx:for-item="item1" >
+      <view style="width: 200rpx;text-align: center;margin-left: 0rpx;margin-right: 20rpx;margin-left: 20rpx;margin-bottom: 30rpx;" bindtap="toDetails" data-id="{{item1.movieid}}">
+        <image mode="aspectFill" src="{{item1.movieimage}}" style="width: 200rpx;height: 350rpx;border-radius: 20rpx;"/>
+        <view style="display: flex;width: 180rpx;  font-size: 25rpx;justify-content: center;">
+          <text style=" white-space:nowrap; overflow: hidden;text-overflow: ellipsis;">{{tool.gct(item1.movietitle)}}</text>
+        </view>
+      </view>
+    </view>
+  <!--这里将会结束循环end-->
+  </view>
+
+  <view style="height: 80rpx;">
+    <button bindtap="changeContent" style="background-color: #42bd56;"><text style="color: white;">{{buttontext}}</text></button>
+  </view>
+</veiw>
+
+
+<view wx:if="{{loading}}" style="flex-direction: column;display: flex;justify-content: center;height: 1200rpx;">
+<view wx:if="{{loading}}" style="flex-direction: row;display: flex;justify-content: center;">
+  <loading></loading>
+</view>
+</view>

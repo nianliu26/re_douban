@@ -1,0 +1,91 @@
+<!--pages/bangdan/bangdan.wxml-->
+<wxs src="./bangdan.wxs" module="tool"/>
+<view wx:if="{{!loading}}">
+
+  <view style="background-color: #42bd56;width: 100%;height: 80rpx;">
+    <view style="float: right;display:flex;align-items:center;height: 100%;margin-right: 10rpx;">
+      <switch bindchange="switchChange"></switch>
+    </view>
+    <view style="float: right;display:flex;align-items:center;height: 100%;margin-right: 10rpx;">
+      <text style="color: white;">切换为网格显示</text>
+    </view>
+  </view>
+
+
+  <!--列表显示-->
+  <view wx:if="{{!displaystyle}}">
+    <view wx:for="{{list}}" style="margin-top: 30rpx;margin-bottom: 10rpx;margin-left: 20rpx;display: flex;">
+      <view style="margin-top: 30rpx;margin-bottom: 10rpx;margin-left: 20rpx;display: flex;" bindtap="toDetails" data-id="{{item._id}}">
+      <!--这里是动态电影列表，由获取的数据决定-->
+        <view>
+          <image  mode="aspectFill" src='{{item.image}}' style="height: 180rpx;width: 100rpx;border-radius: 10rpx;"/>
+        </view>
+        
+        <view style="margin-left: 30rpx;margin-right: 20rpx;">
+          <view style="width: 600rpx;">
+            <text style="font-size: 30rpx;white-space:nowrap;overflow: hidden;text-overflow: ellipsis;">{{tool.gct(item.title)}}</text>
+            <text style="font-size: 25rpx;">{{item.year}}</text>
+          </view>
+          
+          <view style="display: flex;align-items: center;align-content: center;text-align: center;">
+            <view wx:for="{{[1,2,3,4,5]}}" wx:for-index="n" wx:key='key' wx:for-item="stra">
+            <!--    <image src='{{stars.display(itemNmae.rate,n)}}'/> -->
+              <image mode="aspectFill" wx:if="{{item.rate==0}}" src="/img/star1.png" style="width: 20rpx;height: 20rpx;"/> 
+              <image mode="aspectFill" wx:elif="{{2*(n+1)-1 <= item.rate}}" src="/img/star3.png" style="width: 20rpx;height: 20rpx;"/>
+              <image mode="aspectFill" wx:elif="{{2*(n+1)-2 < item.rate}}" src="/img/star4.png" style="width: 20rpx;height: 20rpx;"/>
+              <image mode="aspectFill" wx:else src="/img/star1.png" style="width: 20rpx;height: 20rpx;"/>
+            </view>
+            <text style="font-size: 18rpx;margin-left: 5rpx;">{{item.rate}}</text>
+          </view>
+
+          <view style="font-size: 18rpx;display: flex;margin-right: 20rpx;margin-top: 20rpx;">
+            <view style="background-color: rgb(219, 215, 215);width: 50rpx;height: 30rpx;text-align: center;border-radius: 5rpx;">
+              <text style="font-style: 25rpx;">电影</text>
+            </view>
+            <text >{{item.rate}}/{{item.year}}/{{tool.remake_genre(item.contries)}}/{{tool.remake_genre(item.genre)}}/{{item.director}}</text>
+          </view>
+          <view style="background-color: rgb(219, 215, 215);width: 90%; height: 5rpx;margin-top: 50rpx;margin-right: 20rpx;"></view>
+
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!--网格显示-->
+  <view wx:if="{{displaystyle}}" style="display: flex;flex-wrap: wrap;padding-top: 20rpx;">
+  
+    <view style="width: 200rpx;text-align: center;margin-left: 0rpx;margin-right: 20rpx;margin-left: 20rpx;margin-bottom: 30rpx;" wx:for="{{list}}" wx:for-item="item1" >
+      <view style="width: 200rpx;text-align: center;margin-left: 0rpx;margin-right: 20rpx;margin-left: 20rpx;margin-bottom: 30rpx;" bindtap="toDetails" data-id="{{item1._id}}">
+        <image mode="aspectFill" src="{{item1.image}}" style="width: 200rpx;height: 350rpx;border-radius: 20rpx;"/>
+        <view style="display: flex;width: 180rpx;  font-size: 25rpx;justify-content: center;">
+          <text style=" white-space:nowrap; overflow: hidden;text-overflow: ellipsis;">{{tool.gct(item1.title)}}</text>
+        </view>
+        <view style="display: flex;width: 200rpx;align-content: center;justify-content: center;">
+          <view wx:for="{{[1,2,3,4,5]}}" wx:for-index="n" wx:key='key' style="display: flex;">
+            <!--    <image src='{{stars.display(itemNmae.rate,n)}}'/> -->
+            <image wx:if="{{item1.rate==0}}" src="/img/star1.png" class="star"/> 
+            <image wx:elif="{{2*(n+1)-1 <= item1.rate}}" src="/img/star3.png" class="star"/>
+            <image wx:elif="{{2*(n+1)-2 < item1.rate}}" src="/img/star4.png" class="star"/>
+            <image wx:else src="/img/star1.png" class="star"/>
+          </view>
+          <view style="display: flex;">
+            <text style="font-size: 20rpx;margin-left: 8rpx;">{{item1.rate}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  
+  </view>
+
+
+
+
+
+</view>
+
+
+<view wx:if="{{loading}}" style="flex-direction: column;display: flex;justify-content: center;height: 1200rpx;">
+  <view wx:if="{{loading}}" style="flex-direction: row;display: flex;justify-content: center;">
+    <loading></loading>
+  </view>
+</view>

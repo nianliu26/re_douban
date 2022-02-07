@@ -1,0 +1,17 @@
+<!--pages/our/our.wxml-->
+<text style="font-size: 50rpx;">小组信息:
+</text>
+
+<text style="font-size: 28rpx;margin-bottom: 20rpx;">
+组 长：邓辉
+小组成员：周欢、杨海英、刘颖、李海燕、陈秋全、叶殊杭</text>
+<view style="background-color: black;width: 95%;height: 2rpx;margin: auto;margin-top: 10rpx;"></view>
+<text>
+邓 辉：总体代码逻辑实现
+周 欢：首页布局、ppt制作
+杨海英：登录页面布局、ppt制作
+刘 颖：榜单、详情页面布局、结构图绘制
+李海燕：搜索页面布局、ppt制作
+陈秋全：软件测试和bug反馈
+叶殊杭：软件测试和bug反馈
+</text>

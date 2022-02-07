@@ -1,18 +1,4 @@
-/* pages/DBtest/DBtest.wxss */
-@keyframes box-ani {
-  from {transform: rotate(0)}
-  to {transform: rotate(360deg)}
-}
-.songimg{
-  border-radius:50%;
-  position: relative;
-  /* margin-left: -30rpx; */
-  animation: box-ani 4s  infinite linear;
-  width: 50rpx;
-  height: 50rpx;
-}
-
-
+/* pageA/pages/remark/remark.wxss */
 radio .wx-radio-input.wx-radio-input-checked::before{
   border-radius: 50%;
   width: 0rpx; 
@@ -35,4 +21,3 @@ radio .wx-radio-input{
    height: 0rpx; 
    border: none;/* 替换边框（隐藏原有边框） */
 }
-

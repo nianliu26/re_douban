@@ -4,7 +4,7 @@
     <button style="width: 300rpx;border-radius: 50rpx;" open-type="getUserInfo" bindtap="getinfo" wx:if="{{nickname==''}}">登录</button>
     <view wx:if="{{nickname!=''}}">
       <view style="display: flex;flex-direction: row; justify-content: center;">
-        <image style=" border-radius: 100rpx;height: 100rpx;width: 100rpx;" src="{{avatarUrl}}"/>
+        <image style=" border-radius: 200rpx;height: 160rpx;width: 160rpx;" src="{{avatarUrl}}"/>
       </view>
       <view style="width: 200rpx;display: flex;align-items: center;justify-content: center;">
         <text style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{nickname}}</text>
@@ -46,7 +46,7 @@
       </view>
     </view>
   </view>
-  <view style="float: right;display: flex;position: absolute;right: 0;top: 25%;margin-right: 30rpx;">
+  <view style="float: right;display: flex;position: absolute;right: 0;top: 25%;margin-right: 30rpx;" bindtap="toCollection">
     <view style="background-color: rgb(235, 230, 230);width: 100rpx;height: 50rpx;display: flex;align-items: center;justify-content:center;border-radius: 8rpx;margin-right: 5rpx;">
       <text style="font-size: 20rpx;">立即开启</text>
     </view>
@@ -109,7 +109,7 @@
 </view>
 
 
-<view style="margin-right: 50rpx;margin-left: 50rpx;margin-top: 70rpx;box-shadow: 0px 0px 10px black;height: 200rpx;padding: 30rpx;">
+<view bindtap="toOur" style="margin-right: 50rpx;margin-left: 50rpx;margin-top: 70rpx;box-shadow: 0px 0px 10px black;height: 200rpx;padding: 30rpx;">
   <text>关于我们</text>
 
 </view>

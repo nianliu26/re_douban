@@ -1,0 +1,14 @@
+<!--pageA/pages/remark/remark.wxml-->
+<view style="padding: 30rpx;">
+  <form bindsubmit="sendRemark">
+    <textarea name="remark_content" placeholder="请写下你的评论" auto-height style="margin-bottom: 200rpx;"></textarea>
+    <radio-group bindchange="radioChange" style="margin-bottom: 50rpx;">
+      <label wx:for="{{stars}}" wx:key="{{star.rate}}">
+      <radio value="{{item.rate}}">
+        <image src="{{item.starURL}}" style="height: 80rpx;width: 80rpx;"/>
+      </radio>
+      </label>
+    </radio-group>
+    <button form-type="submit" style="background-color: palegreen;">发送评论</button>
+  </form>
+</view>

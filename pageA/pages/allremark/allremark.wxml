@@ -1,0 +1,73 @@
+<!--pages/allremark/allremark.wxml-->
+<view wx:if="{{!loading}}">
+
+  <view style="margin-top: 20rpx;margin-left: 30rpx;">
+    <view>
+      <text>豆瓣评分</text>
+    </view>
+    
+    <view>
+      <view style="justify-content: center;text-align: center;"> 
+        <text style="font-size: 50rpx;font-weight: bold;">{{rate}}</text>
+      </view>
+      <view style="display: flex;justify-content: center;align-items: center;">
+        <view wx:for="{{[1,2,3,4,5]}}" wx:for-index="n" wx:key='key'>    
+          <image wx:if="{{rate==0}}" src="/img/star1.png" style="width: 30rpx;height: 30rpx;"/> 
+          <image wx:elif="{{2*(n+1)-1 <= rate}}" src="/img/star3.png" style="width: 30rpx;height: 30rpx;"/>
+          <image wx:elif="{{2*(n+1)-2 < rate}}" src="/img/star4.png" style="width: 30rpx;height: 30rpx;"/>
+          <image wx:else src="/img/star1.png" style="width: 30rpx;height: 30rpx;"/>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view style="width: 90%;height: 2rpx;background-color: rgb(226, 223, 223);margin: auto;"></view>
+
+  <view style="margin-top: 20rpx;margin-left: 30rpx;">
+    <text style="font-weight: bold;">短评</text>
+    <text style="font-size: 24rpx;margin-left: 10rpx;">{{acount}}条</text>
+  </view>
+
+  <!--具体内容即循环体-->
+  <view style="background-color: white;padding-top: 10rpx;margin-top: 10rpx;margin-bottom: 10rpx;margin-left: 30rpx;margin-right: 30rpx;" wx:for="{{remarklist}}" wx:key="key" wx:if="{{remark_acount!=0}}">
+      <!--用户信息-->
+      <view style="display: flex;">
+        <image style="height: 80rpx;width: 80rpx;border-radius: 50rpx;" src="{{item.avatarUrl}}"/>
+        <view style="width: 500rpx; margin-left: 10rpx;white-space:nowrap;overflow: hidden;text-overflow: ellipsis;">
+          <text style="font-size: 26rpx;margin-bottom: 10rpx;height: 50rpx;">{{item.nickname}}
+          </text>
+          <view style="display: flex;width: 200rpx;">
+            <view wx:for="{{[1,2,3,4,5]}}" style="display: flex;" wx:for-item="star" wx:for-index="starn">
+              <image wx:if="{{starn+1<=item.rate}}" src="/img/star3.png" style="height: 20rpx;width: 20rpx;"></image>
+              <image wx:else src="/img/star1.png" style="height: 20rpx;width: 20rpx;"></image>
+            </view>
+            <text style="font-size: 18rpx;margin-left: 10rpx;">{{item.data}}</text>
+          </view>
+        </view>
+      </view>
+      <!--评论内容-->
+      <view style="width: 95%;padding-right: 10rpx;padding-left: 10rpx;padding-top: 10rpx;margin-bottom: 10rpx; margin: auto; display: flex;">
+        <text style="font-size: 28rpx;">{{item.remark}}</text>
+      </view>
+      <!--点赞-->
+      <view style="display: flex;">
+        <image src="{{item.goodURL}}" style="width: 70rpx;height: 70rpx;" bindtap="setGood" data-i="{{index}}"></image>
+        <view style="justify-content: center;display: flex; align-items: center;font-size: 20rpx;">
+          <text>{{item.goods}}</text>
+        </view>
+      </view>
+      <!--分割线-->
+      <view style="background-color: rgb(182, 163, 163);width: 94%;height: 2rpx;margin: auto;"></view>
+    </view>
+    <view wx:if="{{remark_acount==0}}" style="height: 100rpx;padding-left: 50rpx;padding-top: 50rpx;">暂无评论</view>
+    
+
+
+</view>
+
+
+<view wx:if="{{loading}}" style="flex-direction: column;display: flex;justify-content: center;height: 1200rpx;">
+  <view wx:if="{{loading}}" style="flex-direction: row;display: flex;justify-content: center;">
+    <loading></loading>
+  </view>
+</view>

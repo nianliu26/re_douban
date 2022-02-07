@@ -11,16 +11,16 @@
       "root": "pageA",
       "pages": [
         "pages/details/details",
+        "pages/collection/collection",
         "pages/more/more",
-        "pages/research/research"
-
+        "pages/research/research",
+        "pages/allremark/allremark",
+        "pages/our/our",
+        "pages/bangdan/bangdan",
+        "pages/remark/remark"
       ]
     }
   ],
-
-
-
-
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
